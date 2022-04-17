@@ -331,6 +331,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#header" class="toc-h2 toc-link" data-title="Header">Header</a>
+                  </li>
+                  <li>
+                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
@@ -369,12 +377,51 @@
 <p align = "center">
 </p>
 <h2 id='steps-involved'>Steps involved</h2>
-<p>The general flow for using the Shipment APIs are as follows:
+<p>The general flow for using the Shipment APIs are as follows:</br>
 1. Request for an authentication token.
 2. User the relevant API methods and endpoints to access order status.</p>
 <h2 id='gateway-url'>Gateway URL</h2>
 <p>The Acme API Gateway URL is <code>https://api.acme.com/v1</code>. You need to include this before each API endpoint to make API calls to Acme servers.</p>
 <h1 id='authentication'>Authentication</h1>
+<p>Acme Corp uses OAuth 2.0 for authentication. To request for an authentication token, you need to include the unique <code>Client ID</code> and <code>Secret Code</code> along with the API request. 
+</br></p>
+
+<p><strong>POST</strong> <code>https://oauth.acme.com/oauth/token</code>
+</br></p>
+<h3 id='header'>Header</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_cats</td>
+<td>false</td>
+<td>If set to true, the result will also include cats.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>true</td>
+<td>If set to false, the result will include kittens that have already been adopted.</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
