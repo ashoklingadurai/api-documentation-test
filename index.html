@@ -461,7 +461,26 @@
 <p>This endpoint allows you to access the status of a shipment. </p>
 
 <p><strong>GET</strong> <code>https://api.acme.com/v1/orderstatus/{count}</code></p>
-<h3 id='header-2'>Header</h3>
+
+<blockquote>
+<p>Sample request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-u</span> <span class="o">[</span>CLIENT_ID]:[CLIENT_SECRET_ID]<span class="se">\-</span>X GET https://api.acme.com/v1/orderstatus/order?count<span class="o">=</span>2
+</code></pre></div>
+<blockquote>
+<p>Sample response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"general_order_information"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12-34567890123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shop_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-order-123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shop_buyer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-buyer-123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-supplier-123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-10T18:06:52.438+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='header-2'>Header</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -480,36 +499,43 @@
 <td>Use the <code>token_type</code> value you got from the authentication response.</td>
 </tr>
 </tbody></table>
+<h3 id='request-body-2'>Request body</h3>
+<p><strong><em>Path</em></strong></p>
 
-<blockquote>
-<p>Sample request</p>
-</blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>curl -u [CLIENT_ID]:[CLIENT_SECRET_ID]\-X GET https://api.acme.com/v1/orderstatus/order?count=2
-</code></pre></div>
-<blockquote>
-<p>Sample response</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"general_order_information"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12-34567890123456789"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"shop_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-order-123"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"shop_buyer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-buyer-123"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-supplier-123"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"order_creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-10T18:06:52.438+01:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='request-body-2'>Request body</h3>
-<p><strong><em>Path</em></strong>
-Parameter | Type | Description
---------- | ------- | -----------
-<code>count</code> | integer | Specify the number of orders you need to display per API request.</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>count</code></td>
+<td>integer</td>
+<td>Specify the number of orders you need to display per API request.</td>
+</tr>
+</tbody></table>
 
-<p><strong><em>Query</em></strong>
-Parameter | Type | Description
---------- | ------- | -----------
-<code>CLIENT_ID</code> | string | Enter your unique client id.
-<code>CLIENT_SECRET_CODE</code> | string | Enter your secret code</p>
+<p><strong><em>Query</em></strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>CLIENT_ID</code></td>
+<td>string</td>
+<td>Enter your unique client id.</td>
+</tr>
+<tr>
+<td><code>CLIENT_SECRET_CODE</code></td>
+<td>string</td>
+<td>Enter your secret code</td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>To authorize, use this code:</p>
