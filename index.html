@@ -370,6 +370,10 @@
         <h1 id='shipment-journey'>Shipment Journey</h1>
 <p>This topic provides you detailed understanding of how Order APIs function when using the <strong>Acme</strong> eCommerce product. As a suppkier, you can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order. Acme&#39;s supplier service stores the shipment traking information which can be accessed via REST APIs and displayed as a shipment journey to your end-customer or just for your own reference.</br></br></p>
 
+<aside class="notice">
+<b>Note:</b> You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
+
 <p><strong><em>NOTE:</em></strong>  These APIs are applicable only if the order is <strong>Acme fulfilled</strong>. If your order is fulfilled by a third party courier service, you can use their API endpoints to populate the order journey.</p>
 <h2 id='brief-context'>Brief context</h2>
 <p>An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender&#39;s location and until the said order is delivered to the customer.</p>
@@ -389,7 +393,16 @@
 </br></p>
 
 <p><strong>POST</strong> <code>https://oauth.acme.com/oauth/token</code></p>
-<h3 id='header'>Header</h3>
+
+<blockquote>
+<p>Sample authentication request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_ID}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"secret_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_SECRET}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='header'>Header</h3>
 <table><thead>
 <tr>
 <th>Key</th>
