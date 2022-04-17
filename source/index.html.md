@@ -28,10 +28,14 @@ meta:
 
 This topic provides you detailed understanding of how Order APIs function in an ecommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.
 
----
 ## Brief context
 
 An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender's location and until the said order is delivered to the customer.
+
+<p align="center">
+<img src="/images/shipment.png" alt="" style="padding: 0%;"> 
+<p align = "center">
+</p>
 
 
 # Authentication
