@@ -39,15 +39,37 @@ An order shipment journey represents all the functions that happen between the s
 
 ## Steps involved
 
-The general flow for using the Shipment APIs are as follows:
+The general flow for using the Shipment APIs are as follows:</br>
 1. Request for an authentication token.
 2. User the relevant API methods and endpoints to access order status.
 
 ## Gateway URL
 The Acme API Gateway URL is `https://api.acme.com/v1`. You need to include this before each API endpoint to make API calls to Acme servers.
 
-
 # Authentication
+
+Acme Corp uses OAuth 2.0 for authentication. To request for an authentication token, you need to include the unique `Client ID` and `Secret Code` along with the API request. 
+</br>
+
+**POST** `https://oauth.acme.com/oauth/token`
+</br>
+
+### Header
+
+Key | Value | Type
+--------- | ------- | -----------
+`Content-Type` | `application/json` | string
+
+### Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+
+
+
 
 > To authorize, use this code:
 
