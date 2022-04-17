@@ -9,8 +9,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-  - Created by [Ashok Lingadurai](https://github.com/ashoklingadurai/ashok_lingadurai_tech_writing_portfolio)
-  - Checkout how this document is built - [View source code](https://github.com/ashoklingadurai/api-documentation-test)
+  - <a href='https://github.com/ashoklingadurai/ashok_lingadurai_tech_writing_portfolio'>Author - Ashok Lingadurai</a>
+  - <a href='https://github.com/ashoklingadurai/api-documentation-test'>View source code</a>
 
 includes:
   - errors
@@ -24,10 +24,11 @@ meta:
     content: Documentation for the Kittn API
 ---
 
-# Order Shipment Journey: Explained
+# Shipment Journey
 
 This topic provides you detailed understanding of how Order APIs function in an ecommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.
 
+---
 ## Brief context
 
 An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender's location and until the said order is delivered to the customer.
