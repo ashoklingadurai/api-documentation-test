@@ -26,7 +26,9 @@ meta:
 
 # Shipment Journey
 
-This topic provides you detailed understanding of how Order APIs function when using the **Acme** eCommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.
+This topic provides you detailed understanding of how Order APIs function when using the **Acme** eCommerce product. As a suppkier, you can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order. Acme's supplier service stores the shipment traking information which can be accessed via REST APIs and displayed as a shipment journey to your end-customer or just for your own reference.</br></br>
+
+**_NOTE:_**  These APIs are applicable only if the order is **Acme fulfilled**. If your order is fulfilled by a third party courier service, you can use their API endpoints to populate the order journey.
 
 ## Brief context
 
@@ -39,8 +41,8 @@ An order shipment journey represents all the functions that happen between the s
 
 ## Steps involved
 
-The general flow for using the Shipment APIs are as follows:</br>
-1. Request for an authentication token.
+The general flow for using the Shipment APIs are as follows:</br></br>
+1. Request for an authentication token.</br>
 2. User the relevant API methods and endpoints to access order status.
 
 ## Gateway URL
@@ -52,7 +54,6 @@ Acme Corp uses OAuth 2.0 for authentication. To request for an authentication to
 </br>
 
 **POST** `https://oauth.acme.com/oauth/token`
-</br>
 
 ### Header
 
@@ -60,12 +61,23 @@ Key | Value | Type
 --------- | ------- | -----------
 `Content-Type` | `application/json` | string
 
-### Parameters
+### Request body
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+`client_id` | string | The unique `client_id` provided by Acme corp.
+`secret_code` | string | The secret code shared by Acme corp.
+`grant_type` | string | Enter the text `"access_token"`
+
+> Sample authentication request
+
+```json
+{
+    "client_id": "{CLIENT_ID}",
+    "secret_code": "{CLIENT_SECRET}",
+    "grant_type": "access_token"
+}
+```
 
 
 
