@@ -26,7 +26,7 @@ meta:
 
 # Shipment Journey
 
-This topic provides you detailed understanding of how Order APIs function in an ecommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.
+This topic provides you detailed understanding of how Order APIs function when using the **Acme** eCommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.
 
 ## Brief context
 
@@ -36,6 +36,15 @@ An order shipment journey represents all the functions that happen between the s
 <img src="/images/shipment.png" alt="" style="padding: 0%;"> 
 <p align = "center">
 </p>
+
+## Steps involved
+
+The general flow for using the Shipment APIs are as follows:
+1. Request for an authentication token.
+2. User the relevant API methods and endpoints to access order status.
+
+## Gateway URL
+The Acme API Gateway URL is `https://api.acme.com/v1`. You need to include this before each API endpoint to make API calls to Acme servers.
 
 
 # Authentication
