@@ -100,16 +100,9 @@ This endpoint allows you to access the status of a shipment.
 
 **GET** `https://api.acme.com/v1/orderstatus/{count}`
 
-### Header
-
-Key | Value | Type
---------- | ------- | -----------
-`Content-Type` | `application/json` | string
-`Authorization` | `supplier` | Use the `token_type` value you got from the authentication response.
-
 > Sample request
 
-```curl
+```shell
 curl -u [CLIENT_ID]:[CLIENT_SECRET_ID]\-X GET https://api.acme.com/v1/orderstatus/order?count=2
 ```
 
@@ -128,14 +121,23 @@ curl -u [CLIENT_ID]:[CLIENT_SECRET_ID]\-X GET https://api.acme.com/v1/orderstatu
 }
 ```
 
+### Header
+
+Key | Value | Type
+--------- | ------- | -----------
+`Content-Type` | `application/json` | string
+`Authorization` | `supplier` | Use the `token_type` value you got from the authentication response.
+
 ### Request body
 
 ***Path***
+
 Parameter | Type | Description
 --------- | ------- | -----------
 `count` | integer | Specify the number of orders you need to display per API request.
 
 ***Query***
+
 Parameter | Type | Description
 --------- | ------- | -----------
 `CLIENT_ID` | string | Enter your unique client id.
