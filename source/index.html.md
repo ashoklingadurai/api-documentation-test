@@ -8,8 +8,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - Created by [Ashok Lingadurai](https://github.com/ashoklingadurai/ashok_lingadurai_tech_writing_portfolio)
+  - Checkout how this document is built - [View source code](https://github.com/ashoklingadurai/api-documentation-test)
 
 includes:
   - errors
@@ -23,14 +24,14 @@ meta:
     content: Documentation for the Kittn API
 ---
 
-# Introduction
+# Order Shipment Journey: Explained
 
-Good morning world!
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This topic provides you detailed understanding of how Order APIs function in an ecommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+## Brief context
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender's location and until the said order is delivered to the customer.
+
 
 # Authentication
 
