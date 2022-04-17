@@ -341,6 +341,14 @@
               </ul>
           </li>
           <li>
+            <a href="#order-apis" class="toc-h1 toc-link" data-title="Order APIs">Order APIs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-status-api" class="toc-h2 toc-link" data-title="Get status API">Get status API</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
@@ -368,13 +376,11 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='shipment-journey'>Shipment Journey</h1>
-<p>This topic provides you detailed understanding of how Order APIs function when using the <strong>Acme</strong> eCommerce product. As a suppkier, you can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order. Acme&#39;s supplier service stores the shipment traking information which can be accessed via REST APIs and displayed as a shipment journey to your end-customer or just for your own reference.</br></br></p>
+<p>This topic provides you detailed understanding of how Order APIs function when using the <strong>Acme</strong> eCommerce product. As a supplier, you can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order. Acme&#39;s supplier service stores the shipment traking information which can be accessed via REST APIs and displayed as a shipment journey to your end-customer or just for your own reference.</br></br></p>
 
 <aside class="notice">
-<b>Note:</b> You must replace <code>meowmeowmeow</code> with your personal API key.
+<b>Note:</b> These APIs are applicable only if the order is <b>Acme fulfilled</b>. If your order is fulfilled by a third party courier service, you can use their API endpoints to populate the order journey.
 </aside>
-
-<p><strong><em>NOTE:</em></strong>  These APIs are applicable only if the order is <strong>Acme fulfilled</strong>. If your order is fulfilled by a third party courier service, you can use their API endpoints to populate the order journey.</p>
 <h2 id='brief-context'>Brief context</h2>
 <p>An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender&#39;s location and until the said order is delivered to the customer.</p>
 
@@ -399,8 +405,17 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_ID}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"secret_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_SECRET}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"secret_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_SECRET_CODE}"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Sample response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"supplier"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='header'>Header</h3>
 <table><thead>
@@ -440,16 +455,62 @@
 <td>Enter the text <code>&quot;access_token&quot;</code></td>
 </tr>
 </tbody></table>
+<h1 id='order-apis'>Order APIs</h1>
+<p>Using the Order APIs suppliers can access the status of an order and its transit information which you can display to the end customers.</p>
+<h2 id='get-status-api'>Get status API</h2>
+<p>This endpoint allows you to access the status of a shipment. </p>
+
+<p><strong>GET</strong> <code>https://api.acme.com/v1/orderstatus/{count}</code></p>
+<h3 id='header-2'>Header</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>Authorization</code></td>
+<td><code>supplier</code></td>
+<td>Use the <code>token_type</code> value you got from the authentication response.</td>
+</tr>
+</tbody></table>
 
 <blockquote>
-<p>Sample authentication request</p>
+<p>Sample request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>curl -u [CLIENT_ID]:[CLIENT_SECRET_ID]\-X GET https://api.acme.com/v1/orderstatus/order?count=2
+</code></pre></div>
+<blockquote>
+<p>Sample response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_ID}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"secret_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_SECRET}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="w">
+    </span><span class="nl">"general_order_information"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12-34567890123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shop_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-order-123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shop_buyer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-buyer-123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-supplier-123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_creation_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-03-10T18:06:52.438+01:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><h3 id='request-body-2'>Request body</h3>
+<p><strong><em>Path</em></strong>
+Parameter | Type | Description
+--------- | ------- | -----------
+<code>count</code> | integer | Specify the number of orders you need to display per API request.</p>
+
+<p><strong><em>Query</em></strong>
+Parameter | Type | Description
+--------- | ------- | -----------
+<code>CLIENT_ID</code> | string | Enter your unique client id.
+<code>CLIENT_SECRET_CODE</code> | string | Enter your secret code</p>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
