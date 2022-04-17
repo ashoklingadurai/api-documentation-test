@@ -28,6 +28,10 @@ meta:
 
 This topic provides you detailed understanding of how Order APIs function when using the **Acme** eCommerce product. As a suppkier, you can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order. Acme's supplier service stores the shipment traking information which can be accessed via REST APIs and displayed as a shipment journey to your end-customer or just for your own reference.</br></br>
 
+<aside class="notice">
+<b>Note:</b> You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
+
 **_NOTE:_**  These APIs are applicable only if the order is **Acme fulfilled**. If your order is fulfilled by a third party courier service, you can use their API endpoints to populate the order journey.
 
 ## Brief context
@@ -54,6 +58,16 @@ Acme Corp uses OAuth 2.0 for authentication. To request for an authentication to
 </br>
 
 **POST** `https://oauth.acme.com/oauth/token`
+
+> Sample authentication request
+
+```json
+{
+    "client_id": "{CLIENT_ID}",
+    "secret_code": "{CLIENT_SECRET}",
+    "grant_type": "access_token"
+}
+```
 
 ### Header
 
