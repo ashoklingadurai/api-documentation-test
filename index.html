@@ -336,7 +336,7 @@
                     <a href="#header" class="toc-h2 toc-link" data-title="Header">Header</a>
                   </li>
                   <li>
-                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#request-body" class="toc-h2 toc-link" data-title="Request body">Request body</a>
                   </li>
               </ul>
           </li>
@@ -368,7 +368,9 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='shipment-journey'>Shipment Journey</h1>
-<p>This topic provides you detailed understanding of how Order APIs function when using the <strong>Acme</strong> eCommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.</p>
+<p>This topic provides you detailed understanding of how Order APIs function when using the <strong>Acme</strong> eCommerce product. As a suppkier, you can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order. Acme&#39;s supplier service stores the shipment traking information which can be accessed via REST APIs and displayed as a shipment journey to your end-customer or just for your own reference.</br></br></p>
+
+<p><strong><em>NOTE:</em></strong>  These APIs are applicable only if the order is <strong>Acme fulfilled</strong>. If your order is fulfilled by a third party courier service, you can use their API endpoints to populate the order journey.</p>
 <h2 id='brief-context'>Brief context</h2>
 <p>An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender&#39;s location and until the said order is delivered to the customer.</p>
 
@@ -377,8 +379,8 @@
 <p align = "center">
 </p>
 <h2 id='steps-involved'>Steps involved</h2>
-<p>The general flow for using the Shipment APIs are as follows:</br>
-1. Request for an authentication token.
+<p>The general flow for using the Shipment APIs are as follows:</br></br>
+1. Request for an authentication token.</br>
 2. User the relevant API methods and endpoints to access order status.</p>
 <h2 id='gateway-url'>Gateway URL</h2>
 <p>The Acme API Gateway URL is <code>https://api.acme.com/v1</code>. You need to include this before each API endpoint to make API calls to Acme servers.</p>
@@ -386,8 +388,7 @@
 <p>Acme Corp uses OAuth 2.0 for authentication. To request for an authentication token, you need to include the unique <code>Client ID</code> and <code>Secret Code</code> along with the API request. 
 </br></p>
 
-<p><strong>POST</strong> <code>https://oauth.acme.com/oauth/token</code>
-</br></p>
+<p><strong>POST</strong> <code>https://oauth.acme.com/oauth/token</code></p>
 <h3 id='header'>Header</h3>
 <table><thead>
 <tr>
@@ -402,26 +403,40 @@
 <td>string</td>
 </tr>
 </tbody></table>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='request-body'>Request body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td><code>client_id</code></td>
+<td>string</td>
+<td>The unique <code>client_id</code> provided by Acme corp.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td><code>secret_code</code></td>
+<td>string</td>
+<td>The secret code shared by Acme corp.</td>
+</tr>
+<tr>
+<td><code>grant_type</code></td>
+<td>string</td>
+<td>Enter the text <code>&quot;access_token&quot;</code></td>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>Sample authentication request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_ID}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"secret_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{CLIENT_SECRET}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
