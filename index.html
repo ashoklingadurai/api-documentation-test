@@ -321,6 +321,12 @@
                   <li>
                     <a href="#brief-context" class="toc-h2 toc-link" data-title="Brief context">Brief context</a>
                   </li>
+                  <li>
+                    <a href="#steps-involved" class="toc-h2 toc-link" data-title="Steps involved">Steps involved</a>
+                  </li>
+                  <li>
+                    <a href="#gateway-url" class="toc-h2 toc-link" data-title="Gateway URL">Gateway URL</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -354,7 +360,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='shipment-journey'>Shipment Journey</h1>
-<p>This topic provides you detailed understanding of how Order APIs function in an ecommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.</p>
+<p>This topic provides you detailed understanding of how Order APIs function when using the <strong>Acme</strong> eCommerce product. You can use these APIs to view the status of a shipment, estimated delivery date and the current transit location of the order.</p>
 <h2 id='brief-context'>Brief context</h2>
 <p>An order shipment journey represents all the functions that happen between the state when the order is successfully manifested and shipped from sender&#39;s location and until the said order is delivered to the customer.</p>
 
@@ -362,6 +368,12 @@
 <img src="images/shipment-9fd7b58d.png" alt="" style="padding: 0%;"> 
 <p align = "center">
 </p>
+<h2 id='steps-involved'>Steps involved</h2>
+<p>The general flow for using the Shipment APIs are as follows:
+1. Request for an authentication token.
+2. User the relevant API methods and endpoints to access order status.</p>
+<h2 id='gateway-url'>Gateway URL</h2>
+<p>The Acme API Gateway URL is <code>https://api.acme.com/v1</code>. You need to include this before each API endpoint to make API calls to Acme servers.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
